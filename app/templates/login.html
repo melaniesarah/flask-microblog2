@@ -2,9 +2,7 @@
 
 {% block content %}
 <h1>Sign In</h1>
-<form action="" method="POST" novalidate> 
-    {{ #The action attribute is used to tell the browser the URL that should be used when submitting the information the user entered in the form. When the action is set to an empty string the form is submitted to the URL that is currently in the address bar, which is the URL that rendered the form on the page.}}
-    {{ #The novalidate attribute is used to tell the web browser to not apply validation to the fields in this form, which effectively leaves this task to the Flask application running in the server}}
+<form action="" method="post" novalidate> 
     {{ form.hidden_tag() }}
     <p>
         {{ form.username.label }}<br>
@@ -16,5 +14,8 @@
     </p>
     <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
     <p>{{ form.submit() }}</p>
+    
+    The action attribute is used to tell the browser the URL that should be used when submitting the information the user entered in the form. When the action is set to an empty string the form is submitted to the URL that is currently in the address bar, which is the URL that rendered the form on the page
+    The novalidate attribute is used to tell the web browser to not apply validation to the fields in this form, which effectively leaves this task to the Flask application running in the server
 </form>
 {% endblock %}
