@@ -11,7 +11,7 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 
-from app import routes, models
+from app import routes, models, errors
 '''
 The bottom import is a workaround to circular imports, a common problem with Flask applications.
 The routes module needs to import the app variable defined in this script, so putting one of the
