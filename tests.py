@@ -31,7 +31,7 @@ class UserModelCase(unittest.TestCase):
         db.session.add(u2)
         db.session.commit()
         self.assertEqual(u1.followed.all(), [])
-        self.assertEqual(u1.follows.all(), [])
+        self.assertEqual(u1.followers.all(), [])
 
         u1.follow(u2)
         db.session.commit()
@@ -46,6 +46,7 @@ class UserModelCase(unittest.TestCase):
         self.assertFalse(u1.is_following(u2))
         self.assertEqual(u1.followed.count(), 0)
         self.assertEqual(u2.followers.count(), 0)
+
 
     def test_follow_posts(self):
         #create four users
