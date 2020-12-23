@@ -12,6 +12,7 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['melaniesarah@gmail.com']
+    POSTS_PER_PAGE = 6
     '''
     The SQLALCHEMY_TRACK_MODIFICATIONS configuration option is set to False to disable the feature of Flask-SQLAlchemy 
     that signals the app every time a change is about to be made in the database.
