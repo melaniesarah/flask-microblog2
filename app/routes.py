@@ -147,8 +147,7 @@ def reset_password_request():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user:
-            send_password_reset_email(user)
+            send_email('Reset Password', app.config['ADMINS'][0], user.email, 'text body', '<h1>HTML body</h1>')
         flash('Check your email for the instructions to reset your password')
         return redirect(url_for('login'))
-    return render_template('reset_password_request.html',
-                           title='Reset Password', form=form)
+    return render_template('reset_password_request.html',  title='Reset Password', form=form)
