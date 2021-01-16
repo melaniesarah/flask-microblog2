@@ -1,6 +1,6 @@
 
-venv/
+venv
 app.db
 logs/
-__pycache__/
-app/__pycache__/
+**/__pycache__
+venv/bin
