@@ -19,6 +19,7 @@ class Config(object):
     POSTS_PER_PAGE = 6
     LANGUAGES = ['en', 'es']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     '''
     The SQLALCHEMY_TRACK_MODIFICATIONS configuration option is set to False to disable the feature of Flask-SQLAlchemy 
     that signals the app every time a change is about to be made in the database.
