@@ -1,16 +1,12 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from flask import current_app
 from flask_login import UserMixin
 from hashlib import md5
 from time import time
 import jwt
-from app import db, login, app
+from app import db, login
 
-
-
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
 
 followers = db.Table('followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
@@ -72,6 +68,10 @@ class User(UserMixin, db.Model):
         except:
             return
         return User.query.get(id)
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
