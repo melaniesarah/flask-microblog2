@@ -17,6 +17,7 @@ class Config(object):
     MAIL_DEFAULT_SENDER = 'melaniesarah@gmail.com'
     ADMINS = ['melaniesarah@gmail.com']
     POSTS_PER_PAGE = 6
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
     LANGUAGES = ['en', 'es']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
