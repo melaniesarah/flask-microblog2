@@ -63,7 +63,7 @@ def create_app(config_class=Config):
             mail_handler.setLevel(logging.ERROR)
             app.logger.addHandler(mail_handler)
 
-        if not app.config['LOG_TO_STD_OUT']:
+        if app.config['LOG_TO_STDOUT']:
             strem_handler = logging.StreamHandler()
             stream_handler.setLevel(logging.INFO)
             app.logger.addHandler(stream_handler)
