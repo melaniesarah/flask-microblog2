@@ -127,8 +127,8 @@ def unfollow(username):
 @login_required
 def translate_text():
     return jsonify({'text': translate(request.form['text'],
-                                      request.form['source_language'],
-                                      request.form['dest_language'])})
+                            request.form['source_language'],
+                            request.form['dest_language'])})
 
 @bp.route('/search')
 @login_required
