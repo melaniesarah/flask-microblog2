@@ -105,7 +105,7 @@ class SearchableMixin(object):
                 add_to_index(obj.__tablename__, obj)
         for obj in session._changes['delete']:
             remove_from_index(obj.__tablename__, obj)
-        session._changes = NotImplementedError
+        session._changes = None
 
     @classmethod
     def reindex(cls):
@@ -116,9 +116,9 @@ db.event.listen(db.session, 'before_commit', SearchableMixin.before_commit)
 db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
 
 
-class Post(db.Model):
+class Post(SearchableMixin, db.Model):
 #class Post(SearchableMixin, db.Model):
-    __searchable__=['body']
+    __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)

@@ -35,8 +35,7 @@ def create_app(config_class=Config):
     moment.init_app(app)
     babel.init_app(app)
 
-    app.elasticsearch = Elasticsearch([{'host': 'localhost', 'port': 9200}]) \
-        if app.config['ELASTICSEARCH_URL'] else None
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) if app.config['ELASTICSEARCH_URL'] else None
 
     from app.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
